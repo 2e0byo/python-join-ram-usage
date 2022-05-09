@@ -48,6 +48,7 @@ jobs:
       - run: |
           git config user.name  github-action
           git config user.email github-actions@github.com
+          git pull
           mv readme.md readme.md.bak
           awk '/## Results/{i++} !i; i==1 {exit}' readme.md.bak > readme.md
           echo -e  "## Results" >> readme.md
