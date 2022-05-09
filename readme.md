@@ -63,9 +63,9 @@ Without list:
 With list:
 10,000,104 : 20
 Without list
-20 loops, best of 5: 18 msec per loop
+20 loops, best of 5: 20.9 msec per loop
 With list
-20 loops, best of 5: 17.7 msec per loop
+20 loops, best of 5: 21.2 msec per loop
 
 
 3.6-results.txt
@@ -74,9 +74,9 @@ Without list:
 With list:
 11,000,160 : 20
 Without list
-20 loops, best of 3: 16.5 msec per loop
+20 loops, best of 3: 19.3 msec per loop
 With list
-20 loops, best of 3: 16.5 msec per loop
+20 loops, best of 3: 20.1 msec per loop
 
 
 3.7-results.txt
@@ -85,9 +85,9 @@ Without list:
 With list:
 11,000,168 : 20
 Without list
-20 loops, best of 5: 15.1 msec per loop
+20 loops, best of 5: 19.6 msec per loop
 With list
-20 loops, best of 5: 14.5 msec per loop
+20 loops, best of 5: 19.8 msec per loop
 
 
 3.8-results.txt
@@ -96,9 +96,9 @@ Without list:
 With list:
 10,000,104 : 20
 Without list
-20 loops, best of 5: 15.7 msec per loop
+20 loops, best of 5: 19.3 msec per loop
 With list
-20 loops, best of 5: 15.5 msec per loop
+20 loops, best of 5: 19.4 msec per loop
 
 
 3.9-results.txt
@@ -107,9 +107,9 @@ Without list:
 With list:
 10,000,104 : 20
 Without list
-20 loops, best of 5: 16.5 msec per loop
+20 loops, best of 5: 16.3 msec per loop
 With list
-20 loops, best of 5: 17.1 msec per loop
+20 loops, best of 5: 18.6 msec per loop
 
 
 ```
