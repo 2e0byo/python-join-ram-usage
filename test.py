@@ -22,9 +22,9 @@ for func in [with_list, without_list] * 20:
     peak = tm.get_traced_memory()[1]
     tm.stop()
     if func.__name__ == "without_list":
-        without_bytes[peak] = without_bytes.get(peak, 0) + 1
+        without_bytes[peak] += 1
     else:
-        with_bytes[peak] = with_bytes.get(peak, 0) + 1
+        with_bytes[peak] += 1
 
 res = ["Without list:"]
 res += [f"{b:,} : {c}" for b, c in without_bytes.items()]
