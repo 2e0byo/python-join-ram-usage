@@ -1,4 +1,7 @@
 Without list:
 10,000,048 : 20
 With list:
-10,000,104 : 20
+10,000,104 : 20Without list
+20 loops, best of 5: 16.6 msec per loop
+With list
+20 loops, best of 5: 17.7 msec per loop
