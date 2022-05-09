@@ -15,6 +15,27 @@ might *save* ram over the (IMHO more natural):
 This is of course a micro-optimisation, and you should just use whatever you
 find clearer (which is obviously avoiding the cast to `list` ;).
 
+## Random things
+
+- running git push from multiple jobs at the same time hits race
+  conditions. Here's a crude way to avoid that:
+
+  ```bash
+  for attempt in $(seq 10); do
+      echo "uploading attempt $attempt"
+      git pull
+      git push && break
+      sleep $(echo "$RANDOM / 10000" | bc -l)
+  done
+  ```
+
+  `$RANDOM` is, helpfully, a random number.  `bc` is the Basic Calculator.
+
+- `git commit` errors if there are no changes.  I guess that makes sense.
+
+- `sed` lets you invert commands with `!`. So `!p` means 'don't print', which is
+  handy.
+
 
 ## Reliability
 
