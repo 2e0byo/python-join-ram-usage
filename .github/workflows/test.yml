@@ -22,14 +22,21 @@ jobs:
       - name: Run test script
         run: |
           python test.py
+          python -m pip install perfbench
           echo -e "\nWithout list" >> results.txt
           python -m timeit -n 20 -s 's="a" * 10**6' '" ".join(s)' >> results.txt
           echo "With list" >> results.txt
           python -m timeit -n 20 -s 's="a" * 10**6' '" ".join(list(s))' >> results.txt
           mv results.txt ${{ matrix.python-version }}-results.txt
+
+          python test_time.py
+          mv perf.html html/${{ matrix.python-version }}-perf.html
+
           git config user.name  github-action
           git config user.email github-actions@github.com
           git config pull.rebase false
+
+          git add html/${{ matrix.python-version }}-perf.html
           git add ${{ matrix.python-version }}-results.txt
           git commit -m "chore: results." || exit 0
           # exponential backoff for race condn
@@ -39,6 +46,13 @@ jobs:
               git push && break
               sleep $(echo "$RANDOM / 10000" | bc -l)
           done
+
+      - name: Deploy Website
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          publish_dir: ./html
+
 
   update-readme:
     runs-on: ubuntu-latest
