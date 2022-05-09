@@ -14,7 +14,7 @@ jobs:
       fail-fast: false
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - name: Set up Python
         uses: actions/setup-python@v1
         with:
@@ -23,8 +23,8 @@ jobs:
         run: |
           python test.py
           mv results.txt ${{ matrix.python-version }}-results.txt
-          git config user.name  "GitHub Actions Bot"
-          git config user.email "<>"
+          git config user.name  github-action
+          git config user.email github-actions@github.com
           git add ${{ matrix.python-version }}-results.txt
           git commit -m "chore: results."
-          git push origin master
+          git push
