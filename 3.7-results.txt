@@ -2,6 +2,6 @@ Without list:
 11,000,096 : 20
 With list:
 11,000,168 : 20Without list
-20 loops, best of 5: 16.6 msec per loop
+20 loops, best of 5: 16.8 msec per loop
 With list
-20 loops, best of 5: 15.8 msec per loop
+20 loops, best of 5: 16.1 msec per loop
