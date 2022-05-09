@@ -26,10 +26,14 @@ for func in [with_list, without_list] * 20:
     else:
         with_bytes[peak] = with_bytes.get(peak, 0) + 1
 
-print("Without list:")
-for b, c in without_bytes.items():
-    print(f"{b:,} : {c}")
+res = ["Without list:"]
+res += [f"{b:,} : {c}" for b, c in without_bytes.items()]
 
-print("With list:")
-for b, c in with_bytes.items():
-    print(f"{b:,} : {c}")
+res.append("With list:")
+res += [f"{b:,} : {c}" for b, c in with_bytes.items()]
+
+res = "\n".join(res)
+print(res)
+
+with open("results.txt", "w") as f:
+    f.write(res)

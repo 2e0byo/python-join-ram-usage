@@ -20,4 +20,11 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - name: Run test script
-        run: python test.py
+        run: |
+          python test.py
+          mv results.txt ${{ matrix.python-version }}-results.txt
+          git config user.name  "GitHub Actions"
+          git config user.email "<>"
+          git add ${{ matrix.python-version }}--results.txt
+          git commit -m "chore: results."
+          git push origin master
