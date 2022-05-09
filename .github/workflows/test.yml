@@ -30,6 +30,7 @@ jobs:
           # exponential backoff for race condn
           for attempt in $(seq 10); do
               echo "uploading attempt $attempt"
-              git push --fast-forward && break
+              git pull
+              git push && break
               sleep $(echo "$RANDOM / 10000" | bc -l)
           done
