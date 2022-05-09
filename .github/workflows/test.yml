@@ -38,6 +38,7 @@ jobs:
 
   update-readme:
     runs-on: ubuntu-latest
+    needs: test
     steps:
       - uses: actions/checkout@v3
       - run: |
@@ -45,13 +46,14 @@ jobs:
           git config user.email github-actions@github.com
           mv readme.md readme.md.bak
           sed -ne '/## Results/ !p' readme.md.bak > readme.md
-          echo -e "\n```" >> readme.md
+          echo  "" >> readme.md
+          echo '```' >> readme.md
           for fn in *-results.txt; do
               echo $fn >> readme.md
               cat $fn >> readme.md
               echo -e "\n" >> readme.md
           done
-          echo "```" >> readme.md
+          echo '```' >> readme.md
           git add readme.md
           git commit -m "chore: results aggregate." || exit 0
           git push
