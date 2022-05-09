@@ -2,7 +2,7 @@ from perfbench import *
 
 bm = Benchmark(
     datasets=[Dataset(factories=[lambda n: "a" * n])],
-    dataset_sizes=list(2**n for n in range(10)),
+    dataset_sizes=list(2**n for n in range(25)),
     kernels=[
         Kernel(stmt='" ".join(DATASET)', label="No List"),
         Kernel(stmt='" ".join(list(DATASET))', label="List"),
