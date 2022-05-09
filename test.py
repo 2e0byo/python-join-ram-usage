@@ -16,7 +16,7 @@ without_bytes = Counter()
 with_bytes = Counter()
 
 
-for func in [with_list, without_list] * 3:
+for func in [with_list, without_list] * 20:
     tm.start()
     func()
     peak = tm.get_traced_memory()[1]
