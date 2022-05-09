@@ -41,6 +41,20 @@ find clearer (which is obviously avoiding the cast to `list` ;).
   do.)  The awk version is very easy:
   
   ```bash
+   awk '/##_Results/{i++} !i; i==1 {exit}' readme.md.bak > readme.md
+   ```
+   which means: increment counter `i` when match; if not match (do default action=print); if match, exit.
+   
+   Note that I have replaced a space with `_` here---else the regex will match...
+ 
+ 
+## Reliability
+
+These results are hopefully indicative.  It's *possible* something odd with
+garbage collection is happening, although altering the order of running appears
+to have no affect which suggests otherwise.  This is definitely not a scientific
+test however!
+
 ## Results
 ```
 3.10-results.txt
