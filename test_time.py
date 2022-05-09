@@ -7,7 +7,7 @@ bm = Benchmark(
         Kernel(stmt='" ".join(DATASET)', label="No List"),
         Kernel(stmt='" ".join(list(DATASET))', label="List"),
         Kernel(stmt='" ".join([*DATASET])', label="Unpacking"),
-        Kernel(stmt='DATASET.replace("", " ")', label="Replace"),
+        Kernel(stmt='DATASET.replace("", " ")[1:-1]', label="Replace"),
     ],
     xlabel="String Length",
     title="str.join(str) vs str.join(list(str))",
