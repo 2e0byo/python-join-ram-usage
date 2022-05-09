@@ -72,9 +72,14 @@
 
         <p>
           Here are some graphs of execution for multiple different python versions, made
-          with the excellent <a href="https://github.com/Hasenpfote/perfbench">perfbench</a>.  The
-          data is made in github actions, and the results are then hosted here.  This html
-          file is hand-coded because I couldn't be bothered to use a templating language.
+          with the excellent <a href="https://github.com/Hasenpfote/perfbench">perfbench</a>.
+          The data is made in github actions, and the results are then hosted
+          here.  This html file is hand-coded because I couldn't be bothered to
+          use a templating language.  For the fun of it we also test two further
+          methods: <code>" ".join([*s])</code> and <code>s.replace("", " ")[1:-1]</code>.
+          The latter is obvious when you see it, but it would never have
+          occurred to me.
+
         </p>
       </section>
 
