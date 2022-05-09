@@ -1,0 +1,118 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://unpkg.com/chota@latest">
+    <style>
+     body.dark {
+       --bg-color: #000;
+       --bg-secondary-color: #131316;
+       --font-color: #f5f5f5;
+       --color-grey: #ccc;
+       --color-darkGrey: #777;
+     }
+     .card {
+       margin-top: 0.5cm;
+       margin-bottom: 0.5cm;
+     }
+     :root {
+       --grid-maxWidth: 8in;
+     }
+    </style>
+    <script>
+     if (window.matchMedia &&
+         window.matchMedia('(prefers-color-scheme: dark)').matches) {
+       document.body.classList.add('dark');
+     }
+    </script>
+  </head>
+
+  <body>
+    <div class="container" role="document" id="top">
+      <header role="banner">
+        <h1>Time and Ram usage for joining on strings in Python</h1>
+        <h2>Or, why the internet is a dangerous source of procrastination</h2>
+      </header>
+
+      <section>
+        <h3>Background</h3>
+
+        Over on StackOverflow somebody proposed an answer which included this:
+        <code>" ".join(list(some_str))</code>.
+
+        <p>
+          I believe (based on divination, crystal balls, and blind prejudice) that
+          this usage of list is based on the erroneous assumption that it can somehow
+          "make" iterables from non-iterable objects, and that one should only use list
+          when one <em>wants a list</em>, i.e. to a permanent editable datastructure.
+          Thus I would always use <code>" ".join(some_str)</code>.
+        </p>
+
+        <p>
+          But someone in the comments pointed out what I'd never thought of: that a list
+          was used internally, and that it might actually <em>save</em> ram and/or be a
+          speedup to make the list ourselves.
+        </p>
+
+        <p>
+          This is obviously a micro-optimisation, and therefore <em>bad</em>.  If you
+          allow such profane thoughts into your head when coding, the gremlins will take
+          revenge and your code will grind to a halt as unknown side-effects of your
+          micro-optimisations, innocuous in themselves, combine to form a horrible
+          grinding mess, slower and more cantankerous even than the lastest operating
+          system from that company.  The Oracle has spoken.  (Actually, not Oracle, they
+          had something to do with that language, didn't they, the one that doubtless
+          inspired the programmer whose work caused an error I recently hit:
+          <code> Incompatible Operands: float and FloatObject</code>...
+          Well, somebody authoritative has spoken, anyhow.)
+        </p>
+
+        <p>
+          On the other hand, it would be fun to test it and see what difference it does
+          make, woudn't it?
+        </p>
+
+        <p>
+          Here are some graphs of execution for multiple different python versions, made
+          with the excellent <a href="https://github.com/Hasenpfote/perfbench">perfbench</a>.  The
+          data is made in github actions, and the results are then hosted here.  This html
+          file is hand-coded because I couldn't be bothered to use a templating language.
+        </p>
+      </section>
+
+      <section>
+          <h1>Python 3.6</h1>
+          <iframe src="3.6-perf.html" title="3.6"  width="100%" height="400">
+          </iframe>
+      </section>
+
+      <section>
+        <h1>Python 3.7</h1>
+        <iframe src="3.7-perf.html" title="3.7"  width="100%" height="400">
+        </iframe>
+      </section>
+
+      <section>
+        <h1>Python 3.8</h1>
+        <iframe src="3.8-perf.html" title="3.8"  width="100%" height="400">
+        </iframe>
+      </section>
+
+      <section>
+        <h1>Python 3.9</h1>
+        <iframe src="3.9-perf.html" title="3.9"  width="100%" height="400">
+        </iframe>
+      </section>
+
+      <section>
+        <h1>Python 3.10</h1>
+        <iframe src="3.10-perf.html" title="3.10"  width="100%" height="400">
+        </iframe>
+      </section>
+      <footer>
+        Made with <a href="https://jenil.github.io/chota/">Chota</a>.
+
+        We don't eat your cookies or anything like that.
+      </footer>
+
+      <!-- </div> -->
+  </body>
+</html>
