@@ -23,9 +23,9 @@ jobs:
         run: |
           python test.py
           echo -e "\nWithout list" >> results.txt
-          python -m timeit -s 's="a" * 10**6' '" ".join(s)' >> results.txt
+          python -m timeit -n 20 -s 's="a" * 10**6' '" ".join(s)' >> results.txt
           echo "With list" >> results.txt
-          python -m timeit -s 's="a" * 10**6' '" ".join(list(s))' >> results.txt
+          python -m timeit -n 20 -s 's="a" * 10**6' '" ".join(list(s))' >> results.txt
           mv results.txt ${{ matrix.python-version }}-results.txt
           git config user.name  github-action
           git config user.email github-actions@github.com
