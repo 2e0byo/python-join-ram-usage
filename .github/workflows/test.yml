@@ -47,11 +47,6 @@ jobs:
               sleep $(echo "$RANDOM / 10000" | bc -l)
           done
 
-      - name: Deploy Website
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          personal_token: ${{ secrets.PERSONAL_TOKEN }}
-          publish_dir: ./html
 
 
   update-readme:
@@ -76,6 +71,11 @@ jobs:
           git add readme.md
           git commit -m "chore: results aggregate." || exit 0
           git push
+      - name: Deploy Website
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.PERSONAL_TOKEN }}
+          publish_dir: ./html
 
           
 
