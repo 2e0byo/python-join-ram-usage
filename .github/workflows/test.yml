@@ -32,3 +32,4 @@ jobs:
               echo "uploading attempt $attempt"
               git push && break
               sleep $(echo "$RANDOM / 10000" | bc -l)
+          done
