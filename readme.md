@@ -35,6 +35,15 @@ find clearer (which is obviously avoiding the cast to `list` ;).
 
 - `sed` lets you invert commands with `!`. So `!p` means 'don't print', which is
   handy.
+  
+- `awk` is often easier than sed.  (sed didn't work as it was doing what it
+  ought to do---finding a match in a stream---rather than what I wanted it to
+  do.)  The awk version is very easy:
+  
+  ```bash
+  awk '/## Results/{i++} !i; i==1 {exit}' readme.md.bak > readme.md
+  ```
+  which means: increment counter `i` when match; if not match (do default action=print); if match, exit.
 
 
 ## Reliability
