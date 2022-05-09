@@ -35,4 +35,27 @@ jobs:
               git push && break
               sleep $(echo "$RANDOM / 10000" | bc -l)
           done
+
+  update-readme:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - run: |
+          git config user.name  github-action
+          git config user.email github-actions@github.com
+          mv readme.md readme.md.bak
+          sed -ne '/## Results/ !p' readme.md.bak > readme.md
+          echo -e "\n```" >> readme.md
+          for fn in *-results.txt; do
+              echo $fn >> readme.md
+              cat $fn >> readme.md
+              echo -e "\n" >> readme.md
+          done
+          echo "```" >> readme.md
+          git add readme.md
+          git commit -m "chore: results aggregate." || exit 0
+          git push
+
           
+
+
