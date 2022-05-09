@@ -46,7 +46,7 @@ jobs:
           git config user.email github-actions@github.com
           mv readme.md readme.md.bak
           sed -ne '/## Results/ !p' readme.md.bak > readme.md
-          echo  "" >> readme.md
+          echo -e  "## Results" >> readme.md
           echo '```' >> readme.md
           for fn in *-results.txt; do
               echo $fn >> readme.md
