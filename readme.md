@@ -61,50 +61,55 @@ test however!
 Without list:
 10,000,048 : 20
 With list:
-10,000,104 : 20Without list
-10 loops, best of 5: 20.9 msec per loop
+10,000,104 : 20
+Without list
+10 loops, best of 5: 20.7 msec per loop
 With list
-10 loops, best of 5: 21.4 msec per loop
+10 loops, best of 5: 20.9 msec per loop
 
 
 3.6-results.txt
 Without list:
 11,000,096 : 20
 With list:
-11,000,160 : 20Without list
-10 loops, best of 3: 22.9 msec per loop
+11,000,160 : 20
+Without list
+100 loops, best of 3: 17.5 msec per loop
 With list
-10 loops, best of 3: 23.1 msec per loop
+100 loops, best of 3: 17.5 msec per loop
 
 
 3.7-results.txt
 Without list:
 11,000,096 : 20
 With list:
-11,000,168 : 20Without list
-20 loops, best of 5: 16.8 msec per loop
+11,000,168 : 20
+Without list
+10 loops, best of 5: 21.1 msec per loop
 With list
-20 loops, best of 5: 16.1 msec per loop
+10 loops, best of 5: 21.5 msec per loop
 
 
 3.8-results.txt
 Without list:
 11,000,096 : 20
 With list:
-10,000,104 : 20Without list
-10 loops, best of 5: 21.2 msec per loop
+10,000,104 : 20
+Without list
+20 loops, best of 5: 15.6 msec per loop
 With list
-10 loops, best of 5: 20.8 msec per loop
+20 loops, best of 5: 15.4 msec per loop
 
 
 3.9-results.txt
 Without list:
 10,000,048 : 20
 With list:
-10,000,104 : 20Without list
-20 loops, best of 5: 18.3 msec per loop
+10,000,104 : 20
+Without list
+10 loops, best of 5: 22.1 msec per loop
 With list
-20 loops, best of 5: 19.1 msec per loop
+10 loops, best of 5: 22.1 msec per loop
 
 
 ```
