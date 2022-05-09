@@ -27,4 +27,8 @@ jobs:
           git config user.email github-actions@github.com
           git add ${{ matrix.python-version }}-results.txt
           git commit -m "chore: results."
-          git push
+          # exponential backoff for race condn
+          for attempt in $(seq 10); do
+              echo "uploading attempt $attempt"
+              git push && break
+              sleep $(echo "$RANDOM / 10000" | bc -l)
